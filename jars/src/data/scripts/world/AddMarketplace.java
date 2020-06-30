@@ -6,6 +6,9 @@ import com.fs.starfarer.api.campaign.econ.EconomyAPI;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import java.util.List;
 
+/**
+ * Shamelessly stolen from Dassault-Mikoyan's source code.
+ */
 public class AddMarketplace{
     public static MarketAPI addMarketplace(String factionID, SectorEntityToken primaryEntity, List<SectorEntityToken> connectedEntities, String name,
                                            int size, List<String> marketConditions, List<String> Industries, List<String> submarkets, float tariff) {

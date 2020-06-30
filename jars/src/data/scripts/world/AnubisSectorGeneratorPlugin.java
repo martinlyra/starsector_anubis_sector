@@ -9,5 +9,7 @@ public class AnubisSectorGeneratorPlugin implements SectorGeneratorPlugin {
     @Override
     public void generate(SectorAPI sector) {
         new PerculesSystemGenerator().generate(sector);
+
+        new AursiaRelationsSetupPlugin().applyInitialValues(sector);
     }
 }

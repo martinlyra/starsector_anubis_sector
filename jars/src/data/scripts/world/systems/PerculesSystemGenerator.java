@@ -1,13 +1,16 @@
 package data.scripts.world.systems;
 
+import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
+import com.fs.starfarer.api.util.Misc;
 import data.scripts.world.AddMarketplace;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.concurrent.locks.Condition;
 
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
 public class PerculesSystemGenerator implements SectorGeneratorPlugin
@@ -24,11 +27,18 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 "percules",
                 "star_white",
                 250f,
-                150,
+                250,
                 3f,
                 0.1f,
                 1.0f);
         localSystem.setLightColor(new Color(237,250, 241));
+
+        JumpPointAPI innerJumpPoint = Global.getFactory().createJumpPoint(
+                "percules_jp_inner",
+                "Inner Jump-point"
+        );
+        innerJumpPoint.setCircularOrbit(perculesStar, 40, 800, 175);
+        localSystem.addEntity(innerJumpPoint);
 
         SectorEntityToken localGate = localSystem.addCustomEntity(
                 "percules_gate",
@@ -129,6 +139,7 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 "Lord Tim's Castle",
                 "station_mining00",
                 "pirates");
+        stationTim.setInteractionImage("illustrations", "pirate_station");
         stationTim.setCircularOrbitPointingDown(perculesStar, 220, 1050, 175);
 
         MarketAPI timMarket = AddMarketplace.addMarketplace(
@@ -172,17 +183,18 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 100, 2700,
                 190f);
         planetEbba.setCustomDescriptionId("anubis_planet_ebba_desc");
+        planetEbba.setInteractionImage("illustrations", "mine");
 
         SectorEntityToken stationYukon = localSystem.addCustomEntity("anubis_station_yukon",
                 "Yukon Orbital",
                 "station_side02",
-                "independent");
+                "aursia");
         stationYukon.setCircularOrbitPointingDown(planetEbba,75, 180, 40);
         stationYukon.setCustomDescriptionId("anubis_station_yukon_desc");
         stationYukon.setInteractionImage("illustrations", "orbital");
 
         MarketAPI ebbaMarket = AddMarketplace.addMarketplace(
-                "independent",
+                "aursia",
                 planetEbba,
                 Arrays.asList(stationYukon),
                 planetEbba.getName(),
@@ -217,6 +229,27 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 ),
                 0.05f
         );
+
+        localSystem.addRingBand(perculesStar,
+                "misc",
+                "rings_dust0",
+                256f,
+                2,
+                Color.white,
+                256f, 3100, 120
+        );
+
+        SectorEntityToken midRelay = localSystem.addCustomEntity("percules_aursia_relay",
+                null,
+                "comm_relay",
+                "aursia");
+        midRelay.setCircularOrbitPointingDown(perculesStar, 180, 3100, 120);
+
+        SectorEntityToken midBuoy = localSystem.addCustomEntity("percules_aursia_buoy",
+                null,
+                "nav_buoy",
+                "aursia");
+        midBuoy.setCircularOrbitPointingDown(perculesStar, 0, 3100, 120);
 
         /*
         Create Tarantula
@@ -259,13 +292,13 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
         SectorEntityToken stationPorta = localSystem.addCustomEntity("anubis_station_porta",
                 "Porta",
                 "station_lowtech2",
-                "independent");
+                "aursia");
         stationPorta.setCircularOrbitPointingDown(planetTarantula,75, 400, 40);
         stationPorta.setCustomDescriptionId("anubis_station_porta_desc");
         stationPorta.setInteractionImage("illustrations", "orbital");
 
         MarketAPI tarantulaMarket = AddMarketplace.addMarketplace(
-                "independent",
+                "aursia",
                 planetTarantula,
                 Arrays.asList(stationPorta),
                 planetTarantula.getName(),
@@ -321,9 +354,9 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 "misc",
                 "rings_dust0",
                 256f,
-                3,
+                2,
                 Color.white,
-                256f, 6000, 50
+                256f, 5600, 150
         );
         localSystem.addRingBand(perculesStar,
                 "misc",
@@ -331,7 +364,31 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 256f,
                 3,
                 Color.white,
-                256f, 6100, 50
+                256f, 5700, 160
+        );
+        localSystem.addRingBand(perculesStar,
+                "misc",
+                "rings_dust0",
+                256f,
+                3,
+                Color.white,
+                256f, 5800, 170
+        );
+        localSystem.addRingBand(perculesStar,
+                "misc",
+                "rings_dust0",
+                256f,
+                3,
+                Color.white,
+                256f, 6000, 180
+        );
+        localSystem.addRingBand(perculesStar,
+                "misc",
+                "rings_asteroids0",
+                256f,
+                3,
+                Color.white,
+                256f, 6100, 190
         );
         localSystem.addRingBand(perculesStar,
                 "misc",
@@ -339,7 +396,7 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 256f,
                 3,
                 Color.white,
-                256f, 6200, 50
+                256f, 6200, 200
         );
         localSystem.addRingBand(perculesStar,
                 "misc",
@@ -347,7 +404,7 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 256f,
                 3,
                 Color.white,
-                256f, 6300, 50
+                256f, 6300, 210
         );
         localSystem.addRingBand(perculesStar,
                 "misc",
@@ -355,7 +412,7 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 256f,
                 1,
                 Color.white,
-                256f, 6400, 50
+                256f, 6400, 220
         );
         localSystem.addRingBand(perculesStar,
                 "misc",
@@ -363,7 +420,7 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 256f,
                 3,
                 Color.white,
-                256f, 6500, 50
+                256f, 6500, 230
         );
         localSystem.addRingBand(perculesStar,
                 "misc",
@@ -371,8 +428,14 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 256f,
                 1,
                 Color.white,
-                256f, 6600, 50
+                256f, 6600, 240
         );
+
+        SectorEntityToken beltSensors = localSystem.addCustomEntity("percules_aursia_sensors",
+                null,
+                "sensor_array_makeshift",
+                "aursia");
+        beltSensors.setCircularOrbitPointingDown(perculesStar, 40, 6300, 440);
 
         /*
         Create Atlas
@@ -381,12 +444,12 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 perculesStar,
                 "Atlas",
                 "gas_giant",
-                50,
-                200,
+                1900,
+                300,
                 8250,
                 450f
         );
-        planetAtlas.setCustomDescriptionId("anubis_planet_rankuk_desc");
+        planetAtlas.setCustomDescriptionId("anubis_planet_atlas_desc");
 
         localSystem.addAsteroidBelt(planetAtlas,
                 10,
@@ -409,6 +472,12 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 "independent"
         );
         stationNevestapol.setCircularOrbitPointingDown(planetAtlas, 0, 450, 55f);
+
+        SectorEntityToken giantRelay = localSystem.addCustomEntity("percules_atlas_relay",
+                null,
+                "comm_relay",
+                "independent");
+        giantRelay.setCircularOrbitPointingDown(planetAtlas, 180, 700, 440);
 
         MarketAPI nevestapolMarket = AddMarketplace.addMarketplace(
                 stationNevestapol.getFaction().getId(),
@@ -462,9 +531,110 @@ public class PerculesSystemGenerator implements SectorGeneratorPlugin
                 "misc",
                 "rings_asteroids0",
                 256f,
+                3,
+                Color.white,
+                256f, 12400, 50
+        );
+        localSystem.addRingBand(perculesStar,
+                "misc",
+                "rings_asteroids0",
+                256f,
                 2,
                 Color.white,
                 256f, 12500, 50
+        );
+        localSystem.addRingBand(perculesStar,
+                "misc",
+                "rings_dust0",
+                256f,
+                3,
+                Color.white,
+                256f, 12600, 50
+        );
+
+        SectorEntityToken fringeSensors = localSystem.addCustomEntity("percules_pirate_relay",
+                null,
+                "comm_relay_makeshift",
+                Factions.PIRATES);
+        fringeSensors.setCircularOrbitPointingDown(perculesStar, 250, 12850, 440);
+
+        /*
+        Create Junara + Castillo
+         */
+
+        PlanetAPI planetJunara = localSystem.addPlanet("anubis_planet_junara",
+                perculesStar,
+                "Junara",
+                "ice_giant",
+                300,
+                250,
+                13500,
+                480
+        );
+        planetJunara.setCustomDescriptionId("anubis_planet_junara_desc");
+
+        Misc.initConditionMarket(planetJunara);
+        MarketAPI junaraMarket = planetJunara.getMarket();
+        junaraMarket.addCondition(Conditions.VERY_COLD);
+        junaraMarket.addCondition(Conditions.EXTREME_WEATHER);
+        junaraMarket.addCondition(Conditions.HIGH_GRAVITY);
+        junaraMarket.addCondition(Conditions.VOLATILES_ABUNDANT);
+
+        PlanetAPI planetCastillo = localSystem.addPlanet("anubis_planet_castillo",
+                planetJunara,
+                "Castillo",
+                "frozen1",
+                10,
+                80,
+                600,
+                45
+        );
+        planetCastillo.setCustomDescriptionId("anubis_planet_castillo_desc");
+        planetCastillo.setInteractionImage("illustrations", "vacuum_colony");
+
+        SectorEntityToken stationAmanda = localSystem.addCustomEntity("anubis_station_amanda",
+                "Amanda Orbital",
+                "station_mining00",
+                "pirates"
+        );
+        stationAmanda.setCustomDescriptionId("anubis_station_amanda_desc");
+        stationAmanda.setCircularOrbitPointingDown(planetCastillo, 0, 110, 55f);
+
+        MarketAPI castilloMarket = AddMarketplace.addMarketplace(
+                Factions.PIRATES,
+                planetCastillo,
+                Arrays.asList(stationAmanda),
+                planetCastillo.getName(),
+                5,
+                Arrays.asList(
+                        Conditions.ORGANIZED_CRIME,
+                        Conditions.STEALTH_MINEFIELDS,
+                        Conditions.FREE_PORT,
+                        Conditions.THIN_ATMOSPHERE,
+                        Conditions.VERY_COLD,
+                        Conditions.POOR_LIGHT,
+                        Conditions.POPULATION_5,
+
+                        Conditions.ORE_MODERATE,
+                        Conditions.RARE_ORE_MODERATE,
+                        Conditions.VOLATILES_DIFFUSE
+                ),
+                Arrays.asList(
+                        Industries.STARFORTRESS,
+                        Industries.GROUNDDEFENSES,
+                        Industries.POPULATION,
+                        Industries.MINING,
+                        //Industries.REFINING,
+                        //Industries.LIGHTINDUSTRY,
+                        Industries.PATROLHQ,
+                        Industries.WAYSTATION
+                ),
+                Arrays.asList(
+                        Submarkets.SUBMARKET_BLACK,
+                        Submarkets.SUBMARKET_OPEN,
+                        Submarkets.SUBMARKET_STORAGE
+                ),
+                0.10f
         );
 
         /*
