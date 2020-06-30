@@ -1,0 +1,269 @@
+{
+  "id": "aursia",
+  "color": [170,5,5,255],
+  "secondaryUIColor":[211,169,0,200],
+  "secondarySegments":2,
+  "displayName": "Aursia",
+  "displayNameWithArticle": "Aursia",
+  "displayNameLong": "Aursian Federation",
+  "displayNameLongWithArticle": "the Aursian Federation",
+  "logo": "graphics/factions/aursia_flag.png",
+  "crest": "graphics/factions/aursia_crest.png",
+
+  "names": {
+    "fringe": 2,
+    "modern": 2,
+    "world": 1,
+    "future": 2,
+    "myth": 1,
+    "pirate": 2,
+    "ai": 1
+  },
+
+  "shipNamePrefix": "AFAV", #// Aursian Federal Astronautical Vessel
+  "shipNameSources": {
+    "SPACE": 3,
+    "GENERAL": 2,
+    "AZTEC": 3,
+    "PIRATES": 1,
+    "BEASTS": 2,
+    "CELTIC": 1,
+    "NORSE": 1,
+    "GREEK": 2,
+    "MERCANTILE": 1,
+    "REVOLUTIONARY": 1
+  },
+  "fleetTypeNames": {
+    "trade":"Mercantile Convoy",
+    "tradeLiner":"Passenger Convoy",
+    "tradeSmuggler":"Smuggler",
+    "smallTrader":"Trader",
+
+    "patrolSmall":"Fast Picket",
+    "patrolMedium":"Patrol",
+    "patrolLarge":"Detachment",
+
+    "inspectionFleet":"Inspection Fleet",
+    "taskForce":"Task Force",
+
+    "scavengerSmall":"Prospector",
+    "scavengerMedium":"Scavenger",
+    "scavengerLarge":"Salvage Fleet",
+
+    "foodReliefFleet":"Relief Convoy",
+
+    "mercScout":"Mercenary Scout",
+    "mercBountyHunter":"Bounty Hunter",
+    "mercPrivateer":"Privateer",
+    "mercPatrol":"Mercenary Patrol",
+    "mercArmada":"Mercenary Company",
+
+    "battlestation":"Battlestation"
+  },
+
+  "hullFrequency": {
+    "tags": {
+
+    },
+    "hulls": {
+      "buffalo2": 0
+    }
+  },
+
+  "knownShips": {
+    "tags": ["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "pirate"],
+    "hulls": [
+      "atlas",
+      "kite_original",
+      "doom",
+      "afflictor",
+      "prometheus",
+      "omen",
+      "shade",
+      "tempest",
+      "conquest",
+      "eagle",
+      "valkyrie",
+      "harbinger",
+      "gryphon",
+      "heron",
+      "monitor",
+      "mora",
+      "conquest"
+    ]
+  },
+  "priorityShips": {
+    "tags": [],
+    "hulls": [
+
+    ]
+  },
+  "knownFighters": {
+    "tags": ["base_bp","lowtech_bp","midline_bp","hightech_bp"],
+    "fighters": [
+      "xyphos_wing",
+      "thunder_wing",
+      "claw_wing",
+      "hoplon_wing",
+      "trident_wing",
+      "longbow_wing"
+    ]
+  },
+  "priorityFighters": {
+    "tags": [],
+    "fighters": [
+
+    ]
+  },
+  "knownWeapons": {
+    "tags": ["base_bp","lowtech_bp","midline_bp", "missile_bp","hightech_bp"],
+    "weapons": [
+      "railgun",
+      "dualflak",
+      "heavymauler",
+      "hveldriver",
+      "gauss",
+      "mjolnir",
+      "sabotpod",
+      "phasecl",
+      "cyclone",
+      "hurricane",
+      "squall",
+      "locust",
+      "pdburst",
+      "amblaster",
+      "phasebeam",
+      "heavyblaster",
+      "heavyburst",
+      "ionpulser",
+      "ionbeam",
+      "plasma",
+      "guardian"
+    ]
+  },
+  "priorityWeapons": {
+    "tags": [],
+    "weapons": [
+
+    ]
+  },
+  "knownHullMods": {
+    "tags": [],
+    "hullMods": [
+
+    ]
+  },
+  "factionDoctrine": {
+    "warships": 2,
+    "carriers": 3,
+    "phaseShips": 2,
+
+    "officerQuality": 3,
+    "shipQuality": 1,
+    "numShips": 3,
+
+    "shipSize": 4,
+
+    "aggression": 3,
+
+    "combatFreighterProbability":0,     				# instead of some portion of the freighters in a fleet
+    "combatFreighterCombatUseFraction":0,  				# as part of the normal combat lineup
+    "combatFreighterCombatUseFractionWhenPriority":0.33,# as part of normal combat lineup, when marked as priority ship
+    "autofitRandomizeProbability":0.1,
+
+    "commanderSkillsShuffleProbability":0,
+    "commanderSkills":[
+      "ship_design",
+      "electronic_warfare",
+      "fighter_doctrine",
+      "officer_management",
+      "coordinated_maneuvers",
+    ]
+  },
+
+  "illegalCommodities": [
+    "organs"
+  ],
+
+  "portraits": {
+    "standard_male": [
+      "graphics/portraits/portrait_corporate01.png",
+      "graphics/portraits/portrait_corporate03.png",
+      "graphics/portraits/portrait_diktat01.png",
+      "graphics/portraits/portrait_diktat04.png",
+      "graphics/portraits/portrait_diktat07.png",
+      "graphics/portraits/portrait_league02.png",
+      "graphics/portraits/portrait_hegemony12.png",
+      "graphics/portraits/portrait_mercenary01.png",
+      "graphics/portraits/portrait_mercenary03.png",
+      "graphics/portraits/portrait_mercenary04.png",
+      "graphics/portraits/portrait_mercenary06.png",
+      "graphics/portraits/portrait12.png",
+      "graphics/portraits/portrait13.png",
+      "graphics/portraits/portrait15.png",
+      "graphics/portraits/portrait17.png",
+      "graphics/portraits/portrait18.png",
+      "graphics/portraits/portrait20.png",
+      "graphics/portraits/portrait25.png",
+      "graphics/portraits/portrait26.png",
+      "graphics/portraits/portrait30.png",
+      "graphics/portraits/portrait31.png",
+      "graphics/portraits/portrait33.png",
+      "graphics/portraits/portrait35.png",
+      "graphics/portraits/portrait36.png",
+      "graphics/portraits/portrait38.png",
+      "graphics/portraits/portrait40.png"
+    ],
+    "standard_female": [
+      "graphics/portraits/portrait_corporate02.png",
+      "graphics/portraits/portrait_corporate04.png",
+      "graphics/portraits/portrait_diktat02.png",
+      "graphics/portraits/portrait_diktat08.png",
+      "graphics/portraits/portrait_league04.png",
+      "graphics/portraits/portrait_league05.png",
+      "graphics/portraits/portrait_mercenary02.png",
+      "graphics/portraits/portrait_mercenary05.png",
+      "graphics/portraits/portrait14.png",
+      "graphics/portraits/portrait16.png",
+      "graphics/portraits/portrait21.png",
+      "graphics/portraits/portrait22.png",
+      "graphics/portraits/portrait24.png",
+      "graphics/portraits/portrait27.png",
+      "graphics/portraits/portrait28.png",
+      "graphics/portraits/portrait29.png",
+      "graphics/portraits/portrait32.png",
+      "graphics/portraits/portrait34.png",
+      "graphics/portraits/portrait37.png",
+      "graphics/portraits/portrait39.png"
+    ]
+  },
+  "ranks": {
+    "ranks": {
+      "factionLeader": {
+        "name": "Head Councillor"
+      }
+    },
+    "posts": {
+      "factionLeader": {
+        "name": "Head Councillor"
+      }
+    }
+  },
+
+  "custom": {
+    "offcersCommissions": true,
+    "engagesInHostilities": true,
+    "buysAICores": true,
+    "AICoreValueMult": 4,
+    "AICoreRepMuult": 1,
+    "buysSurveyData": true,
+    "hostilityImpactOnGrowth": true,
+    "caresAboutAtrocities": false,
+    "punitiveExpeditionData": {
+      "vsCompetitors": false,
+      "vsFreePort": false,
+      "canBombard": true,
+      "territorial": false
+    }
+  }
+}
