@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.Arrays;
 
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
-public class PerculesSystemGenerator implements SectorGeneratorPlugin
+public class PerculesSystemGenerator implements CustomStarSystemGenerator
 {
     @Override
     public void generate(SectorAPI sector) {

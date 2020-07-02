@@ -1,9 +1,9 @@
-package data.scripts;
+package xyz.matly.anubis.data.scripts;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 
-import data.scripts.world.AnubisSectorGeneratorPlugin;
+import xyz.matly.anubis.data.scripts.world.AnubisSectorGeneratorPlugin;
 
 import exerelin.campaign.SectorManager;
 
