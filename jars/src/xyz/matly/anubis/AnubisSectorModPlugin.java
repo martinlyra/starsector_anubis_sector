@@ -1,14 +1,13 @@
-package xyz.matly.anubis.data.scripts;
+package xyz.matly.anubis;
 
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
-
-import xyz.matly.anubis.data.scripts.world.AnubisSectorGeneratorPlugin;
 
 import exerelin.campaign.SectorManager;
 
 import org.json.JSONException;
 import org.json.JSONObject;
+import xyz.matly.anubis.data.scripts.AnubisSectorGeneratorPlugin;
 
 import java.io.IOException;
 

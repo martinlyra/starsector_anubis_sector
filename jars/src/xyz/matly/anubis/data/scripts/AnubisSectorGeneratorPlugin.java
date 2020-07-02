@@ -1,8 +1,9 @@
-package xyz.matly.anubis.data.scripts.world;
+package xyz.matly.anubis.data.scripts;
 
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 
+import xyz.matly.anubis.data.scripts.world.AursiaRelationsSetupPlugin;
 import xyz.matly.anubis.data.scripts.world.systems.AnaberraSystemGenerator;
 import xyz.matly.anubis.data.scripts.world.systems.CustomStarSystemGenerator;
 import xyz.matly.anubis.data.scripts.world.systems.PerculesSystemGenerator;

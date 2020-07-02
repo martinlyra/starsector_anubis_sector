@@ -8,5 +8,5 @@
 
 	"totalConversion": false,
 	"jars": ["jars/anubis_sector.jar"],
-	"modPlugin": "data.scripts.AnubisSectorModPlugin",
+	"modPlugin": "xyz.matly.anubis.AnubisSectorModPlugin"
 }

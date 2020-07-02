@@ -1,4 +1,4 @@
-package data.scripts.world.systems;
+package xyz.matly.anubis.data.scripts.world.systems;
 
 import com.fs.starfarer.api.campaign.SectorAPI;
 

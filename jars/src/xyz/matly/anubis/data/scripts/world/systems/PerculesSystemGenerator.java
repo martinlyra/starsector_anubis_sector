@@ -1,11 +1,11 @@
-package data.scripts.world.systems;
+package xyz.matly.anubis.data.scripts.world.systems;
 
 import com.fs.starfarer.api.Global;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.util.Misc;
-import data.scripts.world.utils.AddMarketplace;
+import xyz.matly.anubis.data.scripts.world.utils.AddMarketplace;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -16,12 +16,12 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
     @Override
     public void generate(SectorAPI sector) {
 
-        StarSystemAPI localSystem = sector.createStarSystem("Percules");
-        localSystem.setBackgroundTextureFilename("graphics/backgrounds/background6.jpg");
+        StarSystemAPI systemAPI = sector.createStarSystem("Percules");
+        systemAPI.setBackgroundTextureFilename("graphics/backgrounds/background6.jpg");
 
-        LocationAPI localHyper = sector.getHyperspace();
+        //LocationAPI localHyper = sector.getHyperspace();
 
-        PlanetAPI perculesStar = localSystem.initStar(
+        PlanetAPI perculesStar = systemAPI.initStar(
                 "percules",
                 "star_white",
                 250f,
@@ -29,16 +29,16 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 3f,
                 0.1f,
                 1.0f);
-        localSystem.setLightColor(new Color(237,250, 241));
+        systemAPI.setLightColor(new Color(237,250, 241));
 
         JumpPointAPI innerJumpPoint = Global.getFactory().createJumpPoint(
                 "percules_jp_inner",
                 "Inner Jump-point"
         );
         innerJumpPoint.setCircularOrbit(perculesStar, 40, 800, 175);
-        localSystem.addEntity(innerJumpPoint);
+        systemAPI.addEntity(innerJumpPoint);
 
-        SectorEntityToken localGate = localSystem.addCustomEntity(
+        SectorEntityToken localGate = systemAPI.addCustomEntity(
                 "percules_gate",
                 "Percules Gate",
                 "inactive_gate",
@@ -49,7 +49,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         /*
         Create inner belt
          */
-        localSystem.addAsteroidBelt(perculesStar,
+        systemAPI.addAsteroidBelt(perculesStar,
                 20,
                 1200,
                 200,
@@ -58,7 +58,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Terrain.ASTEROID_BELT,
                 "Percules Inner Belt"
         );
-        localSystem.addAsteroidBelt(perculesStar,
+        systemAPI.addAsteroidBelt(perculesStar,
                 20,
                 1500,
                 200,
@@ -67,7 +67,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Terrain.ASTEROID_BELT,
                 "Percules Inner Belt"
         );
-        localSystem.addRingBand(perculesStar, "misc",
+        systemAPI.addRingBand(perculesStar, "misc",
                 "rings_asteroids0",
                 256f,
                 -3,
@@ -76,7 +76,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 1200,
                 140
         );
-        localSystem.addRingBand(perculesStar, "misc",
+        systemAPI.addRingBand(perculesStar, "misc",
                 "rings_dust0",
                 256f,
                 1,
@@ -85,7 +85,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 1100,
                 140
         );
-        localSystem.addRingBand(perculesStar, "misc",
+        systemAPI.addRingBand(perculesStar, "misc",
                 "rings_ice0",
                 256f,
                 1,
@@ -94,7 +94,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 1300,
                 140
         );
-        localSystem.addRingBand(perculesStar, "misc",
+        systemAPI.addRingBand(perculesStar, "misc",
                 "rings_dust0",
                 256f,
                 1,
@@ -103,7 +103,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 1400,
                 140
         );
-        localSystem.addRingBand(perculesStar, "misc",
+        systemAPI.addRingBand(perculesStar, "misc",
                 "rings_asteroids0",
                 256f,
                 0,
@@ -112,7 +112,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 1450,
                 140
         );
-        localSystem.addRingBand(perculesStar, "misc",
+        systemAPI.addRingBand(perculesStar, "misc",
                 "rings_dust0",
                 256f,
                 2,
@@ -121,7 +121,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 1500,
                 140
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -133,10 +133,10 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         /*
         Create Lord Tim's Castle
          */
-        SectorEntityToken stationTim = localSystem.addCustomEntity("anubis_station_tim",
+        SectorEntityToken stationTim = systemAPI.addCustomEntity("anubis_station_tim",
                 "Lord Tim's Castle",
                 "station_mining00",
-                "pirates");
+                Factions.PIRATES);
         stationTim.setInteractionImage("illustrations", "pirate_station");
         stationTim.setCircularOrbitPointingDown(perculesStar, 220, 1050, 175);
 
@@ -173,7 +173,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         /*
         Create Ebba
          */
-        PlanetAPI planetEbba = localSystem.addPlanet("anubis_planet_ebba",
+        PlanetAPI planetEbba = systemAPI.addPlanet("anubis_planet_ebba",
                 perculesStar,
                 "Ebba",
                 "arid",
@@ -183,16 +183,17 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         planetEbba.setCustomDescriptionId("anubis_planet_ebba_desc");
         planetEbba.setInteractionImage("illustrations", "mine");
 
-        SectorEntityToken stationYukon = localSystem.addCustomEntity("anubis_station_yukon",
+        SectorEntityToken stationYukon = systemAPI.addCustomEntity("anubis_station_yukon",
                 "Yukon Orbital",
                 "station_side02",
-                "aursia");
+                xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA
+        );
         stationYukon.setCircularOrbitPointingDown(planetEbba,75, 180, 40);
         stationYukon.setCustomDescriptionId("anubis_station_yukon_desc");
         stationYukon.setInteractionImage("illustrations", "orbital");
 
         MarketAPI ebbaMarket = AddMarketplace.addMarketplace(
-                "aursia",
+                stationYukon.getFaction().getId(),
                 planetEbba,
                 Arrays.asList(stationYukon),
                 planetEbba.getName(),
@@ -228,7 +229,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 0.05f
         );
 
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -237,22 +238,22 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 256f, 3100, 120
         );
 
-        SectorEntityToken midRelay = localSystem.addCustomEntity("percules_aursia_relay",
+        SectorEntityToken midRelay = systemAPI.addCustomEntity("percules_aursia_relay",
                 null,
                 "comm_relay",
-                "aursia");
+                xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
         midRelay.setCircularOrbitPointingDown(perculesStar, 180, 3100, 120);
 
-        SectorEntityToken midBuoy = localSystem.addCustomEntity("percules_aursia_buoy",
+        SectorEntityToken midBuoy = systemAPI.addCustomEntity("percules_aursia_buoy",
                 null,
                 "nav_buoy",
-                "aursia");
+                xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
         midBuoy.setCircularOrbitPointingDown(perculesStar, 0, 3100, 120);
 
         /*
         Create Tarantula
          */
-        PlanetAPI planetTarantula = localSystem.addPlanet("anubis_planet_tarantula",
+        PlanetAPI planetTarantula = systemAPI.addPlanet("anubis_planet_tarantula",
                 perculesStar,
                 "Tarantula",
                 "tundra",
@@ -264,13 +265,13 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         planetTarantula.setCustomDescriptionId("anubis_planet_tarantula_desc");
         planetTarantula.setInteractionImage("illustrations", "city_from_above");
 
-        localSystem.addAsteroidBelt(planetTarantula,
+        systemAPI.addAsteroidBelt(planetTarantula,
                 10,
                 500,
                 50,
                 40,
                 80);
-        localSystem.addRingBand(planetTarantula,
+        systemAPI.addRingBand(planetTarantula,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -278,7 +279,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 450, 50
                 );
-        localSystem.addRingBand(planetTarantula,
+        systemAPI.addRingBand(planetTarantula,
                 "misc",
                 "rings_ice0",
                 256f,
@@ -287,16 +288,16 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 256f, 500, 50
         );
 
-        SectorEntityToken stationPorta = localSystem.addCustomEntity("anubis_station_porta",
+        SectorEntityToken stationPorta = systemAPI.addCustomEntity("anubis_station_porta",
                 "Porta",
                 "station_lowtech2",
-                "aursia");
+                xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
         stationPorta.setCircularOrbitPointingDown(planetTarantula,75, 400, 40);
         stationPorta.setCustomDescriptionId("anubis_station_porta_desc");
         stationPorta.setInteractionImage("illustrations", "orbital");
 
         MarketAPI tarantulaMarket = AddMarketplace.addMarketplace(
-                "aursia",
+                stationPorta.getFaction().getId(),
                 planetTarantula,
                 Arrays.asList(stationPorta),
                 planetTarantula.getName(),
@@ -339,7 +340,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         Create mid-belt
          */
 
-        localSystem.addAsteroidBelt(perculesStar,
+        systemAPI.addAsteroidBelt(perculesStar,
                 150,
                 6350,
                 200,
@@ -348,7 +349,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Terrain.ASTEROID_BELT,
                 "Percules Midrim Belt"
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -356,7 +357,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 5600, 150
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_asteroids0",
                 256f,
@@ -364,7 +365,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 5700, 160
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -372,7 +373,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 5800, 170
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -380,7 +381,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 6000, 180
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_asteroids0",
                 256f,
@@ -388,7 +389,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 6100, 190
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_ice0",
                 256f,
@@ -396,7 +397,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 6200, 200
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_ice0",
                 256f,
@@ -404,7 +405,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 6300, 210
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_asteroids0",
                 256f,
@@ -412,7 +413,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 6400, 220
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_asteroids0",
                 256f,
@@ -420,7 +421,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 6500, 230
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -429,16 +430,16 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 256f, 6600, 240
         );
 
-        SectorEntityToken beltSensors = localSystem.addCustomEntity("percules_aursia_sensors",
+        SectorEntityToken beltSensors = systemAPI.addCustomEntity("percules_aursia_sensors",
                 null,
                 "sensor_array_makeshift",
-                "aursia");
+                xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
         beltSensors.setCircularOrbitPointingDown(perculesStar, 40, 6300, 440);
 
         /*
         Create Atlas
          */
-        PlanetAPI planetAtlas = localSystem.addPlanet("anubis_planet_atlas",
+        PlanetAPI planetAtlas = systemAPI.addPlanet("anubis_planet_atlas",
                 perculesStar,
                 "Atlas",
                 "gas_giant",
@@ -449,13 +450,13 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         );
         planetAtlas.setCustomDescriptionId("anubis_planet_atlas_desc");
 
-        localSystem.addAsteroidBelt(planetAtlas,
+        systemAPI.addAsteroidBelt(planetAtlas,
                 10,
                 600,
                 100,
                 40,
                 80);
-        localSystem.addRingBand(planetAtlas,
+        systemAPI.addRingBand(planetAtlas,
                 "misc",
                 "rings_ice0",
                 256f,
@@ -464,17 +465,17 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 256f, 600, 50
         );
 
-        SectorEntityToken stationNevestapol = localSystem.addCustomEntity("anubis_station_nevestapol",
+        SectorEntityToken stationNevestapol = systemAPI.addCustomEntity("anubis_station_nevestapol",
                 "Nevestapol",
                 "station_side02",
-                "independent"
+                Factions.INDEPENDENT
         );
         stationNevestapol.setCircularOrbitPointingDown(planetAtlas, 0, 450, 55f);
 
-        SectorEntityToken giantRelay = localSystem.addCustomEntity("percules_atlas_relay",
+        SectorEntityToken giantRelay = systemAPI.addCustomEntity("percules_atlas_relay",
                 null,
                 "comm_relay",
-                "independent");
+                Factions.INDEPENDENT);
         giantRelay.setCircularOrbitPointingDown(planetAtlas, 180, 700, 440);
 
         MarketAPI nevestapolMarket = AddMarketplace.addMarketplace(
@@ -516,7 +517,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         Create outer-belt
          */
 
-        localSystem.addAsteroidBelt(perculesStar,
+        systemAPI.addAsteroidBelt(perculesStar,
                 120,
                 12500,
                 300,
@@ -525,7 +526,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Terrain.ASTEROID_BELT,
                 "Percules Outer Belt"
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_asteroids0",
                 256f,
@@ -533,7 +534,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 12400, 50
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_asteroids0",
                 256f,
@@ -541,7 +542,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Color.white,
                 256f, 12500, 50
         );
-        localSystem.addRingBand(perculesStar,
+        systemAPI.addRingBand(perculesStar,
                 "misc",
                 "rings_dust0",
                 256f,
@@ -550,7 +551,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 256f, 12600, 50
         );
 
-        SectorEntityToken fringeSensors = localSystem.addCustomEntity("percules_pirate_relay",
+        SectorEntityToken fringeSensors = systemAPI.addCustomEntity("percules_pirate_relay",
                 null,
                 "comm_relay_makeshift",
                 Factions.PIRATES);
@@ -560,7 +561,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         Create Junara + Castillo
          */
 
-        PlanetAPI planetJunara = localSystem.addPlanet("anubis_planet_junara",
+        PlanetAPI planetJunara = systemAPI.addPlanet("anubis_planet_junara",
                 perculesStar,
                 "Junara",
                 "ice_giant",
@@ -578,7 +579,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         junaraMarket.addCondition(Conditions.HIGH_GRAVITY);
         junaraMarket.addCondition(Conditions.VOLATILES_ABUNDANT);
 
-        PlanetAPI planetCastillo = localSystem.addPlanet("anubis_planet_castillo",
+        PlanetAPI planetCastillo = systemAPI.addPlanet("anubis_planet_castillo",
                 planetJunara,
                 "Castillo",
                 "frozen1",
@@ -590,16 +591,16 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         planetCastillo.setCustomDescriptionId("anubis_planet_castillo_desc");
         planetCastillo.setInteractionImage("illustrations", "vacuum_colony");
 
-        SectorEntityToken stationAmanda = localSystem.addCustomEntity("anubis_station_amanda",
+        SectorEntityToken stationAmanda = systemAPI.addCustomEntity("anubis_station_amanda",
                 "Amanda Orbital",
                 "station_mining00",
-                "pirates"
+                Factions.PIRATES
         );
         stationAmanda.setCustomDescriptionId("anubis_station_amanda_desc");
         stationAmanda.setCircularOrbitPointingDown(planetCastillo, 0, 110, 55f);
 
         MarketAPI castilloMarket = AddMarketplace.addMarketplace(
-                Factions.PIRATES,
+                stationAmanda.getFaction().getId(),
                 planetCastillo,
                 Arrays.asList(stationAmanda),
                 planetCastillo.getName(),
@@ -638,6 +639,6 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         /*
         End of system generation
          */
-        localSystem.autogenerateHyperspaceJumpPoints(true, true);
+        systemAPI.autogenerateHyperspaceJumpPoints(true, true);
     }
 }
