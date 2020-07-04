@@ -6,6 +6,7 @@ import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.util.Misc;
 import xyz.matly.anubis.data.scripts.world.utils.AddMarketplace;
+import xyz.matly.anubis.data.scripts.world.utils.HyperspaceCleaner;
 
 import java.awt.*;
 import java.util.Arrays;
@@ -641,6 +642,11 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         /*
         End of system generation
          */
-        systemAPI.autogenerateHyperspaceJumpPoints(true, true);
+        systemAPI.autogenerateHyperspaceJumpPoints(
+                true,
+                true,
+                true
+        );
+        HyperspaceCleaner.cleanUp(systemAPI);
     }
 }
