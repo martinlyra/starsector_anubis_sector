@@ -3,6 +3,7 @@ package xyz.matly.anubis;
 import com.fs.starfarer.api.BaseModPlugin;
 import com.fs.starfarer.api.Global;
 
+import com.fs.starfarer.api.loading.Description;
 import exerelin.campaign.SectorManager;
 
 import org.json.JSONException;
@@ -36,7 +37,8 @@ public class AnubisSectorModPlugin extends BaseModPlugin {
 
     }
 
-    public boolean shouldGenerate() {
+    @SuppressWarnings("RedundantIfStatement")
+    private boolean shouldGenerate() {
         if (isNexerelinFound && !SectorManager.getManager().isCorvusMode())
             return false;
         return true;

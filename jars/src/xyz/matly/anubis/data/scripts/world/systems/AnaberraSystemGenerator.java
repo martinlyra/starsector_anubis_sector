@@ -2,10 +2,7 @@ package xyz.matly.anubis.data.scripts.world.systems;
 
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
-import com.fs.starfarer.api.impl.campaign.ids.Conditions;
-import com.fs.starfarer.api.impl.campaign.ids.Factions;
-import com.fs.starfarer.api.impl.campaign.ids.Industries;
-import com.fs.starfarer.api.impl.campaign.ids.Submarkets;
+import com.fs.starfarer.api.impl.campaign.ids.*;
 import xyz.matly.anubis.data.scripts.world.utils.AddMarketplace;
 
 import java.awt.*;
@@ -16,14 +13,14 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
 {
     @Override
     public void generate(SectorAPI sector) {
-        StarSystemAPI systemAPI = sector.createStarSystem("anaberra");
+        StarSystemAPI systemAPI = sector.createStarSystem("Anaberra");
         systemAPI.setBackgroundTextureFilename("graphics/backgrounds/background2.jpg");
         systemAPI.setLightColor(new Color(255, 243, 225));
 
         PlanetAPI anaberraStar = systemAPI.initStar(
-                "anabeera",
+                "anaberra",
                 "star_yellow",
-                600f,
+                700f,
                 500,
                 3f,
                 0.3f,
@@ -40,7 +37,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
                 "barren",
                 60,
                 60,
-                1200,
+                1600,
                 120
         );
         ganzolaPlanet.setCustomDescriptionId("anubis_planet_ganzola_desc");
@@ -48,13 +45,13 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         systemAPI.addRingBand(
                 anaberraStar,
                 "misc",
-                "ring_dust0",
+                "rings_dust0",
                 256f,
                 1,
                 Color.white,
                 256f,
-                1400,
-                130
+                2100,
+                160
         );
 
         /*
@@ -69,8 +66,8 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         stationHaven.setCircularOrbitPointingDown(
                 anaberraStar,
                 160,
-                1650,
-                160
+                3450,
+                200
         );
         stationHaven.setCustomDescriptionId("anubis_station_haven_desc");
 
@@ -106,16 +103,16 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         Create Medina
          */
         PlanetAPI planetMedina = systemAPI.addPlanet(
-                "anubis_sector_medina",
+                "anubis_planet_medina",
                 anaberraStar,
                 "Medina",
                 "terran",
                 120,
                 120,
-                1800,
-                200
+                4250,
+                260
         );
-        planetMedina.setCustomDescriptionId("anubis_sector_medina_desc");
+        planetMedina.setCustomDescriptionId("anubis_planet_medina_desc");
 
         MarketAPI medinaMarket = AddMarketplace.addMarketplace(
                 Factions.INDEPENDENT,
@@ -140,6 +137,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
                         Industries.GROUNDDEFENSES,
                         Industries.POPULATION,
                         Industries.GROUNDDEFENSES,
+                        Industries.SPACEPORT,
 
                         Industries.FARMING,
                         Industries.MINING,
@@ -158,7 +156,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
                 "comm_relay_makeshift",
                 xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA
         );
-        relay.setCircularOrbitPointingDown(anaberraStar, 0, 2000, 250);
+        relay.setCircularOrbitPointingDown(anaberraStar, 0, 5100, 350);
 
         /*
         Create Marrus
@@ -170,8 +168,8 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
                 "gas_giant",
                 80,
                 300,
-                2600,
-                250
+                6600,
+                450
         );
 
         PlanetAPI gladwellPlanet = systemAPI.addPlanet(
@@ -191,35 +189,35 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         systemAPI.addRingBand(
                 anaberraStar,
                 "misc",
-                "ring_dust0",
+                "rings_dust0",
                 256f,
                 2,
                 Color.white,
                 256f,
-                3200,
-                280
+                7800,
+                500
         );
         systemAPI.addRingBand(
                 anaberraStar,
                 "misc",
-                "ring_dust0",
+                "rings_dust0",
                 256f,
                 2,
                 Color.white,
                 256f,
-                3300,
-                285
+                7900,
+                505
         );
         systemAPI.addRingBand(
                 anaberraStar,
                 "misc",
-                "ring_dust0",
+                "rings_dust0",
                 256f,
                 3,
                 Color.white,
                 256f,
-                3400,
-                290
+                8000,
+                510
         );
 
         /*
@@ -234,7 +232,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         andersonStation.setCircularOrbitPointingDown(
                 anaberraStar,
                 150,
-                3700,
+                8800,
                 300f
         );
         andersonStation.setCustomDescriptionId("anubis_station_anderson_desc");

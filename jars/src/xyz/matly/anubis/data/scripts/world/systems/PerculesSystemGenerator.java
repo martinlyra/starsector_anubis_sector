@@ -139,6 +139,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Factions.PIRATES);
         stationTim.setInteractionImage("illustrations", "pirate_station");
         stationTim.setCircularOrbitPointingDown(perculesStar, 220, 1050, 175);
+        stationTim.setCustomDescriptionId("anubis_station_tim_desc");
 
         MarketAPI timMarket = AddMarketplace.addMarketplace(
                 stationTim.getFaction().getId(),
@@ -448,7 +449,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 8250,
                 450f
         );
-        planetAtlas.setCustomDescriptionId("anubis_planet_atlas_desc");
+        //planetAtlas.setCustomDescriptionId("anubis_planet_atlas_desc");
 
         systemAPI.addAsteroidBelt(planetAtlas,
                 10,
@@ -471,6 +472,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Factions.INDEPENDENT
         );
         stationNevestapol.setCircularOrbitPointingDown(planetAtlas, 0, 450, 55f);
+        stationNevestapol.setCustomDescriptionId("anubis_station_nevestapol_desc");
 
         SectorEntityToken giantRelay = systemAPI.addCustomEntity("percules_atlas_relay",
                 null,
@@ -570,7 +572,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 13500,
                 480
         );
-        planetJunara.setCustomDescriptionId("anubis_planet_junara_desc");
+        //planetJunara.setCustomDescriptionId("anubis_planet_junara_desc");
 
         Misc.initConditionMarket(planetJunara);
         MarketAPI junaraMarket = planetJunara.getMarket();
