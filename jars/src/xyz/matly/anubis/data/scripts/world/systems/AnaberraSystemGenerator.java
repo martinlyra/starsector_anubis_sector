@@ -40,7 +40,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
                 1600,
                 120
         );
-        ganzolaPlanet.setCustomDescriptionId("anubis_planet_ganzola_desc");
+        //ganzolaPlanet.setCustomDescriptionId("anubis_planet_ganzola_desc");
 
         systemAPI.addRingBand(
                 anaberraStar,
