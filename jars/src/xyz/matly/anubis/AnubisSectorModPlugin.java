@@ -23,10 +23,10 @@ public class AnubisSectorModPlugin extends BaseModPlugin {
     }
 
     @Override
-    public void onApplicationLoad() throws Exception {
+    public void onApplicationLoad() {
         try {
             loadJsonSettings();
-        } catch (Exception e) {
+        } catch (Exception ignored) {
 
         }
         isNexerelinFound = ThirdPartyModsUtils.findNexerelin(Global.getSettings());
