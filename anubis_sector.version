@@ -1,10 +1,10 @@
 {
-  "masterVersionFile": "https://github.com/martinlyra/starsector_anubis_sector/blob/master/anubis_sector.version",
-  "modName": "Anubis Sector",
-  "modThreadId": 18768,
-  "modVersion": {
-    "major": 0,
-    "minor": 1,
-    "patch": "DEV-2"
-  }
+    "masterVersionFile": "https://github.com/martinlyra/starsector_anubis_sector/blob/master/anubis_sector.version",
+    "modName": "Anubis Sector",
+    "modThreadId": 18768,
+    "modVersion": {
+        "major": 0,
+        "minor": 1,
+        "patch": "DEV-2"
+    }
 }

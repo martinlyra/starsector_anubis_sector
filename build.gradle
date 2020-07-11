@@ -1,11 +1,27 @@
+/**
+ * A build.gradle script made for and adapted for use with Starsector and creating content for it, specially when using
+ * Java or Kotlin with it. It currently has a build task to zip up new updates as releases. Another to update update
+ * version value defined here to the mod_info.json and the mod's .version file, if any.
+ *
+ * @project anubis_sector
+ * @date 2020/07/12
+ * @author Martin Lyrå
+ */
+
+// Necessary to update JSON files and change their version values
+import groovy.json.JsonSlurper
+import groovy.json.JsonBuilder
+
 plugins {
     id 'idea'
     id 'java'
 }
 
-sourceCompatibility = '1.8'
-targetCompatibility = '1.8'
+// Use Java SE 7 as compile target, ideal for any SDKs newer than 7 (8+ and so on)
+sourceCompatibility = '1.7'
+targetCompatibility = '1.7'
 
+// This reflects into both mod_info.json and anubis_sector.version
 project.version = '0.1.DEV-2'
 
 sourceSets {
@@ -31,23 +47,46 @@ dependencies {
     )
 }
 
-/*
-Build tasks
- */
+//
+// Build tasks
+//
 task BuildJar (type: Jar) {
     archiveFileName = "${project.name}.jar" // this is stupid, I should not have to do this, but Gradle insists
     with jar
 }
+
 
 task CopyJar (type: Copy) {
     from BuildJar
     into './jars'
 }
 
-task BuildMod (dependsOn: [BuildJar, CopyJar])
+task UpdateVersionJsons {
+    def slurper = new JsonSlurper()
 
+    // Update mod_info.json
+    def modInfoFile = new File("./mod_info.json")
+    def json1 = slurper.parse(modInfoFile)
+    json1.version = project.version
+    modInfoFile.write(new JsonBuilder(json1).toPrettyString())
+
+    // Update the .version file
+    def versionFile = new File("./${project.name}.version")
+    def json2 = slurper.parse(versionFile)
+    def parts = project.version.tokenize('.')
+    json2.modVersion.major = parts[0] as Integer
+    json2.modVersion.minor = parts[1] as Integer
+    json2.modVersion.patch = parts[2] as String
+    versionFile.write(new JsonBuilder(json2).toPrettyString())
+}
+
+//  Build a .jar then put it in 'jars' folder, ideal for code testing without release
+task BuildMod (dependsOn: [UpdateVersionJsons, BuildJar, CopyJar]) {}
+
+//  Prepare a .zip file with the name format "{name}-{version}.zip" for distribution
 task MakeModRelease (dependsOn: BuildMod, type: Zip) {
     from './'
+    // Add more folders or files here that you wish to include in the release .zips
     include 'data/',
             'graphics/',
             'jars/',
@@ -55,4 +94,7 @@ task MakeModRelease (dependsOn: BuildMod, type: Zip) {
             'LICENSE',
             'mod_info.json',
             'README.md'
+    // Files to not include in the .zips
+    exclude ''
+    into project.name
 }
