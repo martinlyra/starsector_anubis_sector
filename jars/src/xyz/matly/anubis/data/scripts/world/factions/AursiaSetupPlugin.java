@@ -1,14 +1,20 @@
-package xyz.matly.anubis.data.scripts.world;
+package xyz.matly.anubis.data.scripts.world.factions;
 
 import com.fs.starfarer.api.campaign.FactionAPI;
 import com.fs.starfarer.api.campaign.RepLevel;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.impl.campaign.ids.Factions;
+import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 
-public class AursiaRelationsSetupPlugin implements RelationsSetupPlugin {
+public final class AursiaSetupPlugin extends CustomFactionSetupPlugin {
     @Override
-    public void applyInitialValues(SectorAPI sectorAPI) {
-        FactionAPI aursia = sectorAPI.getFaction("aursia");
+    protected void setupData(SectorAPI sector) {
+       SharedData.getData().getPersonBountyEventData().addParticipatingFaction(xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
+    }
+
+    @Override
+    protected void setupRelations(SectorAPI sector) {
+        FactionAPI aursia = sector.getFaction(xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
 
         aursia.setRelationship(Factions.DIKTAT, RepLevel.WELCOMING);
         aursia.setRelationship(Factions.HEGEMONY, RepLevel.INHOSPITABLE);
@@ -37,6 +43,5 @@ public class AursiaRelationsSetupPlugin implements RelationsSetupPlugin {
         aursia.setRelationship("communist_clouds", RepLevel.NEUTRAL);
         aursia.setRelationship("science_fuckers", RepLevel.NEUTRAL);
         aursia.setRelationship("warhawk_republic", RepLevel.NEUTRAL);
-
     }
 }

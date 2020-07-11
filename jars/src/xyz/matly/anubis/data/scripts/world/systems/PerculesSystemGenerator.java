@@ -5,7 +5,7 @@ import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
 import com.fs.starfarer.api.util.Misc;
-import xyz.matly.anubis.data.scripts.world.utils.AddMarketplace;
+import xyz.matly.anubis.data.scripts.world.utils.MarketplaceHelper;
 import xyz.matly.anubis.data.scripts.world.utils.HyperspaceCleaner;
 
 import java.awt.*;
@@ -142,7 +142,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         stationTim.setCircularOrbitPointingDown(perculesStar, 220, 1050, 175);
         stationTim.setCustomDescriptionId("anubis_station_tim_desc");
 
-        MarketAPI timMarket = AddMarketplace.addMarketplace(
+        MarketAPI timMarket = MarketplaceHelper.addMarketplace(
                 stationTim.getFaction().getId(),
                 stationTim,
                 null,
@@ -194,7 +194,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         stationYukon.setCustomDescriptionId("anubis_station_yukon_desc");
         stationYukon.setInteractionImage("illustrations", "orbital");
 
-        MarketAPI ebbaMarket = AddMarketplace.addMarketplace(
+        MarketAPI ebbaMarket = MarketplaceHelper.addMarketplace(
                 stationYukon.getFaction().getId(),
                 planetEbba,
                 Arrays.asList(stationYukon),
@@ -298,7 +298,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         stationPorta.setCustomDescriptionId("anubis_station_porta_desc");
         stationPorta.setInteractionImage("illustrations", "orbital");
 
-        MarketAPI tarantulaMarket = AddMarketplace.addMarketplace(
+        MarketAPI tarantulaMarket = MarketplaceHelper.addMarketplace(
                 stationPorta.getFaction().getId(),
                 planetTarantula,
                 Arrays.asList(stationPorta),
@@ -481,7 +481,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
                 Factions.INDEPENDENT);
         giantRelay.setCircularOrbitPointingDown(planetAtlas, 180, 700, 440);
 
-        MarketAPI nevestapolMarket = AddMarketplace.addMarketplace(
+        MarketAPI nevestapolMarket = MarketplaceHelper.addMarketplace(
                 stationNevestapol.getFaction().getId(),
                 stationNevestapol,
                 null,
@@ -602,7 +602,7 @@ public class PerculesSystemGenerator implements CustomStarSystemGenerator
         stationAmanda.setCustomDescriptionId("anubis_station_amanda_desc");
         stationAmanda.setCircularOrbitPointingDown(planetCastillo, 0, 110, 55f);
 
-        MarketAPI castilloMarket = AddMarketplace.addMarketplace(
+        MarketAPI castilloMarket = MarketplaceHelper.addMarketplace(
                 stationAmanda.getFaction().getId(),
                 planetCastillo,
                 Arrays.asList(stationAmanda),

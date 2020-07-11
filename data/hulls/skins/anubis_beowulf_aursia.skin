@@ -1,0 +1,11 @@
+{
+  "hullName": "Beowulf (AF)",
+  "baseHullId": "anubis_beowulf",
+  "skinHullId": "anubis_beowulf_aursia",
+  "tags": ["aursia_bp"],
+  "tech": "Aursian Military",
+  "baseValueMult": 1.1,
+  "descriptionId": "anubis_beowulf_desc",
+  "restoreToBaseHull": false,
+  "spriteName": "graphics/ships/aursia_dreadnaught.png"
+}

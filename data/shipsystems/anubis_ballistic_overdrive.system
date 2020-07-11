@@ -1,0 +1,13 @@
+{
+  "id": "anubis_ballistic_overdrive",
+  "type": "STAT_MOD",
+  "aiType": "WEAPON_BOOST",
+
+  "statsScript": "xyz.matly.anubis.data.scripts.shipsystems.BallisticOverdriveStats",
+
+  "modifiers": {
+    "ballistic_rof_mod": 1.1,
+    "ballistic_flux_cost_mod": 0.8,
+    "ballistic_range_mod": 1.5
+  }
+}

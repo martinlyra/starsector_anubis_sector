@@ -70,8 +70,15 @@
     }
   },
 
+  "shipsWhenImporting":{
+    "tags":["base_bp", "lowtech_bp", "midline_bp", "hightech_bp"],
+    "hulls": [
+
+    ]
+  },
+
   "knownShips": {
-    "tags": ["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "pirate"],
+    "tags": ["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "independent", "pirate", "anubis_behi_mil", "aursia_bp"],
     "hulls": [
       "atlas",
       "kite_original",
@@ -93,9 +100,9 @@
     ]
   },
   "priorityShips": {
-    "tags": [],
+    "tags": ["aursia_bp"],
     "hulls": [
-
+      "anubis_beowulf_aursia"
     ]
   },
   "knownFighters": {
@@ -148,9 +155,35 @@
     ]
   },
   "knownHullMods": {
-    "tags": [],
+    "tags": ["base_bp", "pirate", "independent", "aursia_bp"],
     "hullMods": [
-
+      "advancedshieldemitter", # accelerated
+      "turretgyros",
+      "armoredweapons",
+      "augmentedengines",
+      "autorepair",
+      "converted_hangar",
+      "eccm",
+      "ecm",
+      "expanded_deck_crew",
+      "magazines",
+      "missleracks",
+      "extendedshieldemitter",
+      "frontemitter",
+      "frontshield",  # makeshift
+      "hardenedshieldemitter",
+      "heavyarmor",
+      "insulatedengine",
+      "targetingunit",
+      "nav_relay",
+      "adaptiveshields", # omni
+      "operations_center",
+      "recovery_shuttles",
+      "fluxbreakers",
+      "stabilizedshieldemitter",
+      "surveying_equipment",
+      "hiressensors",
+      "efficiency_overhaul"
     ]
   },
   "factionDoctrine": {

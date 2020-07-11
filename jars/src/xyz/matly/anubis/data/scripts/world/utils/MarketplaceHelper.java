@@ -10,15 +10,28 @@ import java.util.List;
 import java.util.Objects;
 
 /**
- * Shamelessly stolen from Dassault-Mikoyan's source code.
  *
- * With some changes:
- * -- It can take any implementation of List
- * -- If the conditions contain FREE_PORT, automatically set the market's free port status to true
  */
-public class AddMarketplace{
-    public static MarketAPI addMarketplace(String factionID, SectorEntityToken primaryEntity, List<SectorEntityToken> connectedEntities, String name,
-                                           int size, List<String> marketConditions, List<String> Industries, List<String> submarkets, float tariff) {
+public class MarketplaceHelper {
+
+    /**
+     * Shamelessly stolen from Dassault-Mikoyan's source code.
+     *
+     * With some changes:
+     * -- It can take any implementation of List
+     * -- If the conditions contain FREE_PORT, automatically set the market's free port status to true
+     */
+    public static MarketAPI addMarketplace(
+            String factionID,
+            SectorEntityToken primaryEntity,
+            List<SectorEntityToken> connectedEntities,
+            String name,
+            int size,
+            List<String> marketConditions,
+            List<String> Industries,
+            List<String> submarkets,
+            float tariff
+    ) {
         EconomyAPI globalEconomy = Global.getSector().getEconomy();
         String planetID = primaryEntity.getId();
 
@@ -34,10 +47,12 @@ public class AddMarketplace{
         }
 
         for (String condition : marketConditions) {
-            newMarket.addCondition(condition);
-
             if (Objects.equals(condition, Conditions.FREE_PORT)) // null-safe
+            {
                 newMarket.setFreePort(true);
+                continue;
+            }
+            newMarket.addCondition(condition);
         }
 
         for (String industry : Industries) {

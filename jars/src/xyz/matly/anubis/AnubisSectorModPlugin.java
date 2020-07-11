@@ -12,6 +12,7 @@ import xyz.matly.anubis.data.scripts.AnubisSectorGeneratorPlugin;
 
 import java.io.IOException;
 
+@SuppressWarnings("unused")
 public class AnubisSectorModPlugin extends BaseModPlugin {
 
     private final static String LOCAL_MOD_SETTINGS_PATH = "mod_settings.json";

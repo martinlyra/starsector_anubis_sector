@@ -3,7 +3,8 @@ package xyz.matly.anubis.data.scripts.world.systems;
 import com.fs.starfarer.api.campaign.*;
 import com.fs.starfarer.api.campaign.econ.MarketAPI;
 import com.fs.starfarer.api.impl.campaign.ids.*;
-import xyz.matly.anubis.data.scripts.world.utils.AddMarketplace;
+import com.fs.starfarer.api.util.Misc;
+import xyz.matly.anubis.data.scripts.world.utils.MarketplaceHelper;
 import xyz.matly.anubis.data.scripts.world.utils.HyperspaceCleaner;
 
 import java.awt.*;
@@ -72,7 +73,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         );
         stationHaven.setCustomDescriptionId("anubis_station_haven_desc");
 
-        MarketAPI havenMarket = AddMarketplace.addMarketplace(
+        MarketAPI havenMarket = MarketplaceHelper.addMarketplace(
                 "aursia",
                 stationHaven,
                 null,
@@ -115,7 +116,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         );
         planetMedina.setCustomDescriptionId("anubis_planet_medina_desc");
 
-        MarketAPI medinaMarket = AddMarketplace.addMarketplace(
+        MarketAPI medinaMarket = MarketplaceHelper.addMarketplace(
                 Factions.INDEPENDENT,
                 planetMedina,
                 null,
@@ -239,7 +240,7 @@ public class AnaberraSystemGenerator implements CustomStarSystemGenerator
         andersonStation.setCustomDescriptionId("anubis_station_anderson_desc");
         andersonStation.setInteractionImage("illustrations", "pirate_station");
 
-        MarketAPI andersonMarket = AddMarketplace.addMarketplace(
+        MarketAPI andersonMarket = MarketplaceHelper.addMarketplace(
                 andersonStation.getFaction().getId(),
                 andersonStation,
                 null,
