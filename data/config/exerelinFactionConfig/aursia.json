@@ -11,9 +11,9 @@
 
   "customRebelFaction": "",
   "customRebelFleetId": "",
-  "rebelFleetSuffix": "Dissents",
+  "rebelFleetSuffix": "Radicals",
 
-  "directoryUseShortName": true,
+  "directoryUseShortName": false,
 
   "marketSpawnWeight": 0.75,
 
@@ -37,6 +37,12 @@
     "hegemony",
     "pirates"
   ],
+  "startRelationships": {
+	"hegemony": -1.0,
+	"luddic_church": -0.15,
+	"luddic_path": -1.0,
+	"pirates": -0.5
+  },
   "maxRelationships": {
     "hegemony": 0.10,
     "luddic_path": -0.5,
@@ -71,8 +77,21 @@
     "anarchist"
   ],
 
-  "vengeanceFleetNames":["Pacification Team","Hunter Group","Liquidation Fleet"],
-  "vengeanceFleetNamesSingle":["a Pacification Team","a Hunter Group","a Liquidation Fleet"],
+  "vengeanceLevelNames":[
+    "Antipathy",
+    "Enmity",
+    "Animosity"
+  ],
+  "vengeanceFleetNames":[
+    "Skiptracer",
+    "Lynch Mob",
+    "Liquidation Fleet"
+  ],
+  "vengeanceFleetNamesSingle":[
+    "a Skiptracer team",
+    "a Lynch Mob",
+    "a Liquidation Fleet"
+  ],
 
   "vengeanceFleetSizeMult": 2.5,
 

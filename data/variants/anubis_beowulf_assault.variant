@@ -1,5 +1,5 @@
 {
-  "variantId": "anubis_beowulf_asault",
+  "variantId": "anubis_beowulf_assault",
   "hullId": "anubis_beowulf",
   "displayName": "Assault",
   "goalVariant": true,
@@ -15,9 +15,7 @@
       "weapons": {
         "WS0001": "mjolnir",
         "WS0002": "mjolnir",
-        "WS0003": "mjolnir",
-        "WS0004": "lightac",
-        "WS0005": "lightac"
+        "WS0003": "mjolnir"
       }
     },
     {
@@ -36,6 +34,8 @@
       "autofire": true,
       "mode": "LINKED",
       "weapons": {
+	    "WS0004": "lightac",
+        "WS0005": "lightac",
         "WS0008": "lightac",
         "WS0009": "lightac",
         "WS0026": "lightac",

@@ -1,0 +1,83 @@
+{
+  "variantId": "anubis_beowulf_aursia_assault",
+  "hullId": "anubis_beowulf_aursia",
+  "displayName": "Assault",
+  "goalVariant": true,
+  "fluxCapacitors": 26,
+  "fluxVents": 10,
+  "quality": 1,
+  "permaMods": [],
+  "hullMods": [],
+  "weaponGroups": [
+    {
+      "autofire": false,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0001": "mjolnir",
+        "WS0002": "mjolnir",
+        "WS0003": "mjolnir"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "ALTERNATING",
+      "weapons": {
+        "WS0018": "arbalest",
+        "WS0019": "arbalest",
+        "WS0020": "arbalest",
+        "WS0021": "arbalest",
+        "WS0022": "arbalest",
+        "WS0023": "arbalest"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+	    "WS0004": "lightac",
+        "WS0005": "lightac",
+        "WS0008": "lightac",
+        "WS0009": "lightac",
+        "WS0026": "lightac",
+        "WS0027": "lightac",
+        "WS0028": "lightac",
+        "WS0029": "lightac",
+        "WS0030": "lightac",
+        "WS0031": "lightac",
+        "WS0032": "lightac",
+        "WS0033": "lightac",
+        "WS0034": "lightac",
+        "WS0035": "lightac"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0014": "heatseeker",
+        "WS0015": "heatseeker",
+        "WS0016": "pilum",
+        "WS0017": "pilum"
+      }
+    },
+    {
+      "autofire": true,
+      "mode": "LINKED",
+      "weapons": {
+        "WS0006": "lightdualmg",
+        "WS0007": "lightdualmg",
+        "WS0010": "pdburst",
+        "WS0011": "pdburst",
+        "WS0012": "lightdualmg",
+        "WS0013": "lightdualmg",
+        "WS0024": "pdburst",
+        "WS0025": "pdburst"
+      }
+    }
+  ],
+  "modules": [],
+  "wings": [
+    "broadsword_wing",
+    "broadsword_wing"
+  ]
+}

@@ -3,10 +3,12 @@
   "color": [170,5,5,255],
   "secondaryUIColor":[211,169,0,200],
   "secondarySegments":2,
-  "displayName": "Aursia",
-  "displayNameWithArticle": "Aursia",
+  "displayName": "Aursian",
+  "displayNameWithArticle": "Aursian",
   "displayNameLong": "Aursian Federation",
   "displayNameLongWithArticle": "the Aursian Federation",
+  "personNamePrefixAOrAn":"an",
+  "displayNameIsOrAre":"is",
   "logo": "graphics/factions/aursia_flag.png",
   "crest": "graphics/factions/aursia_crest.png",
 
@@ -39,11 +41,11 @@
     "tradeSmuggler":"Smuggler",
     "smallTrader":"Trader",
 
-    "patrolSmall":"Fast Picket",
-    "patrolMedium":"Patrol",
+    "patrolSmall":"Recon",
+    "patrolMedium":"Security",
     "patrolLarge":"Detachment",
 
-    "inspectionFleet":"Inspection Fleet",
+    "inspectionFleet":"Liaison Fleet",
     "taskForce":"Task Force",
 
     "scavengerSmall":"Prospector",
@@ -63,9 +65,20 @@
 
   "hullFrequency": {
     "tags": {
-
+		"base_bp":6,
+		"midline_bp":8,
+		"hightech_bp":6,
+		
+		"independent": 5,
+		"pirate": 5,
+		
+		"anubis_behi_mil": 10,
+		"aursia_bp": 6
     },
     "hulls": {
+	  "anubis_beowulf_aursia": 2,
+	  
+	  "anubis_beowulf":0,
       "buffalo2": 0
     }
   },
@@ -78,30 +91,41 @@
   },
 
   "knownShips": {
-    "tags": ["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "independent", "pirate", "anubis_behi_mil", "aursia_bp"],
+    "tags": [
+	  "base_bp", 
+	  "lowtech_bp", 
+	  "midline_bp", 
+	  "hightech_bp", 
+	  "independent", 
+	  "pirate", 
+	  "anubis_behi_mil", 
+	  "aursia_bp"
+	],
     "hulls": [
-      "atlas",
-      "kite_original",
-      "doom",
       "afflictor",
-      "prometheus",
-      "omen",
-      "shade",
-      "tempest",
+      "atlas",
+	  "condor",
       "conquest",
+      "doom",
       "eagle",
-      "valkyrie",
-      "harbinger",
       "gryphon",
+      "harbinger",
       "heron",
       "monitor",
       "mora",
-      "conquest"
+      "omen",
+      "prometheus",
+      "shade",
+      "tempest",
+      "valkyrie"
     ]
   },
   "priorityShips": {
     "tags": ["aursia_bp"],
     "hulls": [
+	  "conquest",
+	  "mora",
+	  "doom",
       "anubis_beowulf_aursia"
     ]
   },
@@ -195,7 +219,7 @@
     "shipQuality": 1,
     "numShips": 3,
 
-    "shipSize": 4,
+    "shipSize": 3,
 
     "aggression": 3,
 

@@ -1,0 +1,21 @@
+{
+    "combatCapital": {
+        "anubis_beowulf_assault": 2,
+        "anubis_beowulf_aursia_assault": 2,
+        
+        "fallback": {
+            "combatLarge":1
+        }
+    },
+    "carrierLarge": {
+        "anubis_beowulf_assault": 1,
+        "anubis_beowulf_aursia_assault": 1,
+
+        "fallback": {
+            "carrierMedium":1
+        },
+        "fallback2": {
+            "carrierSmall":1
+        }
+    }
+}
