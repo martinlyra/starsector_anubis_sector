@@ -43,7 +43,7 @@
 
     "patrolSmall":"Recon",
     "patrolMedium":"Security",
-    "patrolLarge":"Detachment",
+    "patrolLarge":"Garrison",
 
     "inspectionFleet":"Liaison Fleet",
     "taskForce":"Task Force",
@@ -72,11 +72,16 @@
 		"independent": 5,
 		"pirate": 5,
 		
+		"tiandong_export": 8,
+		
 		"anubis_behi_mil": 10,
 		"aursia_bp": 6
     },
     "hulls": {
-	  "anubis_beowulf_aursia": 2,
+	  "ox": 2,
+	  "mora": 1,
+	  "conquest": 2,
+	  "anubis_beowulf_aursia": 1,
 	  
 	  "anubis_beowulf":0,
       "buffalo2": 0
@@ -84,7 +89,7 @@
   },
 
   "shipsWhenImporting":{
-    "tags":["base_bp", "lowtech_bp", "midline_bp", "hightech_bp"],
+    "tags":["base_bp", "lowtech_bp", "midline_bp", "hightech_bp", "tiandong_export"],
     "hulls": [
 
     ]
@@ -99,7 +104,8 @@
 	  "independent", 
 	  "pirate", 
 	  "anubis_behi_mil", 
-	  "aursia_bp"
+	  "aursia_bp",
+	  "tiandong_export"
 	],
     "hulls": [
       "afflictor",
@@ -114,6 +120,7 @@
       "monitor",
       "mora",
       "omen",
+	  "ox",
       "prometheus",
       "shade",
       "tempest",
@@ -121,16 +128,13 @@
     ]
   },
   "priorityShips": {
-    "tags": ["aursia_bp"],
+    "tags": ["base_bp","midline_bp","hightech_bp","tiandong_export","aursia_bp"],
     "hulls": [
-	  "conquest",
-	  "mora",
-	  "doom",
-      "anubis_beowulf_aursia"
+
     ]
   },
   "knownFighters": {
-    "tags": ["base_bp","lowtech_bp","midline_bp","hightech_bp"],
+    "tags": ["base_bp","lowtech_bp","midline_bp","hightech_bp", "tiandong_export"],
     "fighters": [
       "xyphos_wing",
       "thunder_wing",
@@ -147,7 +151,7 @@
     ]
   },
   "knownWeapons": {
-    "tags": ["base_bp","lowtech_bp","midline_bp", "missile_bp","hightech_bp"],
+    "tags": ["base_bp","lowtech_bp","midline_bp", "missile_bp","hightech_bp", "tiandong_export"],
     "weapons": [
       "railgun",
       "dualflak",
