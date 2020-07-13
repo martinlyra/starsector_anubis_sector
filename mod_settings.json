@@ -1,0 +1,18 @@
+{
+  "alwaysUseVanillaRelations": false,
+  "enableAnubisFactions": true,
+  "enableAnubisSystems": true,
+
+  "enableModCompatibilityCheck": true,
+  "crashOnIncompatibleMods": false,     # I also like to live dangerously
+  "thirdPartyModsConfig": {
+    "LAZYLIB": {
+      "modId": "lw_lazylib",
+      "compatibility": "DEPENDENCY"
+    },
+    "NEXERELIN": {
+      "modId": "nexerelin",
+      "compatibility": "SUPPORTED"
+    }
+  }
+}

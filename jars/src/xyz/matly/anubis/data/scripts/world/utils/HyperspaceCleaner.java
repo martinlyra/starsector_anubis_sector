@@ -8,10 +8,14 @@ import org.lwjgl.util.vector.Vector2f;
 
 public class HyperspaceCleaner {
     public static void cleanUp(StarSystemAPI systemAPI) {
+        cleanUp(systemAPI, 1.0f);
+    }
+
+    public static void cleanUp(StarSystemAPI systemAPI, float minimumClearanceMult) {
         HyperspaceTerrainPlugin hyperspaceTerrainPlugin =
                 (HyperspaceTerrainPlugin) Misc.getHyperspaceTerrain().getPlugin();
         NebulaEditor nebulaEditor = new NebulaEditor(hyperspaceTerrainPlugin);
-        float minRadius = hyperspaceTerrainPlugin.getTileSize();
+        float minRadius = hyperspaceTerrainPlugin.getTileSize() * minimumClearanceMult;
 
         float radius = systemAPI.getMaxRadiusInHyperspace();
         Vector2f location = systemAPI.getLocation();

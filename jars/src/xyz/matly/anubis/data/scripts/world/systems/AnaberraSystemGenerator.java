@@ -11,7 +11,7 @@ import java.awt.*;
 import java.util.Arrays;
 
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
-public class AnaberraSystemGenerator implements CustomStarSystemGenerator
+public final class AnaberraSystemGenerator implements CustomStarSystemGenerator
 {
     @Override
     public void generate(SectorAPI sector) {

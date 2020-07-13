@@ -9,7 +9,8 @@ import com.fs.starfarer.api.impl.campaign.shared.SharedData;
 public final class AursiaSetupPlugin extends CustomFactionSetupPlugin {
     @Override
     protected void setupData(SectorAPI sector) {
-       SharedData.getData().getPersonBountyEventData().addParticipatingFaction(xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
+       SharedData.getData().getPersonBountyEventData().addParticipatingFaction(
+               xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
     }
 
     @Override
@@ -17,12 +18,12 @@ public final class AursiaSetupPlugin extends CustomFactionSetupPlugin {
         FactionAPI aursia = sector.getFaction(xyz.matly.anubis.impl.campaign.ids.Factions.AURSIA);
 
         aursia.setRelationship(Factions.DIKTAT, RepLevel.WELCOMING);
-        aursia.setRelationship(Factions.HEGEMONY, RepLevel.INHOSPITABLE);
+        aursia.setRelationship(Factions.HEGEMONY, RepLevel.HOSTILE);
         aursia.setRelationship(Factions.INDEPENDENT, RepLevel.WELCOMING);
         aursia.setRelationship(Factions.LUDDIC_CHURCH, RepLevel.INHOSPITABLE);
-        aursia.setRelationship(Factions.LUDDIC_PATH, RepLevel.HOSTILE);
+        aursia.setRelationship(Factions.LUDDIC_PATH, RepLevel.VENGEFUL);
         aursia.setRelationship(Factions.PERSEAN, RepLevel.WELCOMING);
-        aursia.setRelationship(Factions.PIRATES, RepLevel.HOSTILE);
+        aursia.setRelationship(Factions.PIRATES, RepLevel.VENGEFUL);
         aursia.setRelationship(Factions.REMNANTS, RepLevel.HOSTILE);
         aursia.setRelationship(Factions.TRITACHYON, RepLevel.WELCOMING);
 

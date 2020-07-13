@@ -3,6 +3,7 @@ package xyz.matly.anubis.data.scripts;
 import com.fs.starfarer.api.campaign.SectorAPI;
 import com.fs.starfarer.api.campaign.SectorGeneratorPlugin;
 
+import xyz.matly.anubis.AnubisSectorGlobal;
 import xyz.matly.anubis.data.scripts.world.factions.AursiaSetupPlugin;
 import xyz.matly.anubis.data.scripts.world.factions.CustomFactionSetupPlugin;
 import xyz.matly.anubis.data.scripts.world.systems.AnaberraSystemGenerator;
@@ -30,10 +31,13 @@ public class AnubisSectorGeneratorPlugin implements SectorGeneratorPlugin {
 
     @Override
     public void generate(SectorAPI sector) {
-        for (CustomStarSystemGenerator starSystemGenerator : SYSTEMS_TO_CREATE)
-            starSystemGenerator.generate(sector);
-
-        for (CustomFactionSetupPlugin factionSetupPlugin : FACTIONS_TO_SETUP)
-            factionSetupPlugin.setupFaction(sector);
+        if (AnubisSectorGlobal.getConfig().getAnubisSystemsEnabled()) {
+            for (CustomStarSystemGenerator starSystemGenerator : SYSTEMS_TO_CREATE)
+                starSystemGenerator.generate(sector);
+        }
+        if (AnubisSectorGlobal.getConfig().getAnubisFactionsEnabled()) {
+            for (CustomFactionSetupPlugin factionSetupPlugin : FACTIONS_TO_SETUP)
+                factionSetupPlugin.setupFaction(sector);
+        }
     }
 }

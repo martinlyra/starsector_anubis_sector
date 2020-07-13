@@ -12,15 +12,13 @@ import java.awt.*;
 import java.util.Arrays;
 
 @SuppressWarnings("ArraysAsListWithZeroOrOneArgument")
-public class PerculesSystemGenerator implements CustomStarSystemGenerator
+public final class PerculesSystemGenerator implements CustomStarSystemGenerator
 {
     @Override
     public void generate(SectorAPI sector) {
 
         StarSystemAPI systemAPI = sector.createStarSystem("Percules");
         systemAPI.setBackgroundTextureFilename("graphics/backgrounds/background6.jpg");
-
-        //LocationAPI localHyper = sector.getHyperspace();
 
         PlanetAPI perculesStar = systemAPI.initStar(
                 "percules",
